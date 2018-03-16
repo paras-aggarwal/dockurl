@@ -1,53 +1,6 @@
 <html lang="en">
   <head>
-    <style>
-      #nav{
-    margin-bottom: 4%;
-  }
-  @media screen and (max-width: 1000px){
-    #nav{
-      margin-bottom: 20%;
-    }
-    #main-div{
-    min-height: 70%;
-  }
-  }
-  #header{
-    font-family: 'Permanent Marker', cursive;
-    margin-bottom: 10%;
-  }
-  #brand{
-    font-family: 'Akronim', cursive;
-    font-size: 40px;
-  }
-  #main-div{
-    min-height: 60%;
-  }
-  input [type=text]{
-    z-index: 0;
-  }
-  #button{
-    font-family: 'Arima Madurai', cursive;
-  }
-  #footer{
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    background-color: #343a40;
-    color: #fff;
-    height: 50px;
-    z-index: 100;
-  }
-  #copyright{
-    float: left;
-    padding-left: 20px;
-  }
-  #creator{
-    float: right;
-    padding-right: 20px;
-  }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="favicon-dockurl.png">
@@ -101,7 +54,7 @@
         
         <form id="url_shortner">
           <div class="col">
-            <div class="input-group mb-2">
+            <div class="input-group mb-2" id="usersUrl">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fas fa-link"></i></div>
               </div>
@@ -114,7 +67,7 @@
           <div class="col">
             <div class="input-group mb-2">
               <div class="input-group-prepend">
-                <div class="input-group-text">http://dockurl/</div>
+                <div class="input-group-text">https://dockurl/</div>
               </div>
               <input type="text" name="key" class="form-control" placeholder="(Optional) Your custom URL" id="key">
             </div>
@@ -127,9 +80,9 @@
               <button type="submit" name="key" class="btn btn-success mb-2" id="button"><i class="fas fa-link"></i> &nbsp;Shorten</button>
             </div>
           </div>
-          <div id="result"></div>
 
         </form>
+        <div id="result"></div>
       </div>
     </div>
     <div class="col-3">
@@ -138,10 +91,10 @@
     <!-- Footer -->
     <div class="row no-gutters" id="footer">
       <div class="col-md-12 text-center">
-        <div id="signature"><span id="copyright">&copy; 2018, Dock URL</span> <span id="creator">A URL Shortener by: PARAS AGGARWAL</span></div>
+        <div id="signature"><span id="copyright">&copy; 2018, Dock URL</span> <span id="creator">A URL Shortener by: Paras Aggarwal &amp; Aarti Verma</span></div>
       </div>
     </div>
-    <script src="init.js"></script>
+    <script src="js/init.js"></script>
 
   </body>
   </html>
