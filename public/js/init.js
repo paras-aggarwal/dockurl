@@ -3,12 +3,14 @@ $(document).ready(function(){
 		var reg = /^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i;
 		if (reg.test($('#url').val())) { 
     		$('#valid').html('<font color="green">Looks good!</font>');
+    		$('#url').css('border','1.5px solid green');
     		$('#button').removeAttr('disabled');
 			return true;
 		}
 		else if(!reg.test($('#url').val()))
 		{
 			$('#valid').html('<font color="red">Enter valid URL!</font>');
+			$('#url').css('border','1.5px solid red');
 			$('#button').attr('disabled','disabled');
 			return false;
 		}
@@ -27,10 +29,12 @@ $(document).ready(function(){
 				{
 					if(data == "available"){
 							$('#check').html('<font color="red">Not Available</font>');
+							$('#key').css('border','1.5px solid red');
 							$('#button').attr('disabled','disabled');
 					}
 					else{
 						$('#check').html('<font color="green">Available</font>');
+						$('#key').css('border','1.5px solid green');
 						$('#button').removeAttr('disabled');
 					}
 				},

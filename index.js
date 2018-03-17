@@ -50,16 +50,18 @@ app.post('/short', function(req, res){
 	var h = 0;
 	var c = new Date();
 
-	// Adding values in DB
-	var newUrl = new Url({url: u, key: k, hits: h, created: c});
-	newUrl.save(function (err, testEvent) {
-  		if (err) 
-  			return console.error(err);
-  		console.log("Short Url Created!!");
-	});
+	if(u != ""){
+		// Adding values in DB
+		var newUrl = new Url({url: u, key: k, hits: h, created: c});
+		newUrl.save(function (err, testEvent) {
+  			if (err) 
+  				return console.error(err);
+  			console.log("Short Url Created!!");
+		});
 		
-	console.log("Url: "+u+'\nKey: '+k+'\nHits: '+h+'\nCreated at: '+c+'\n');
-	res.send(k);
+		console.log("Url: "+u+'\nKey: '+k+'\nHits: '+h+'\nCreated at: '+c+'\n');
+		res.send(k);
+	}
 });
 
 app.post('/check',function(req, res){
