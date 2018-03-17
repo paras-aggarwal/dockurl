@@ -3,7 +3,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="favicon-dockurl.png">
     <meta name="theme-color" content="#343a40">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,7 +22,7 @@
     <div class="row no-gutters">
       <div class="col-md-12">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
-          <a class="navbar-brand" href="#"><span id="brand">&gt; Dock URL &lt;</span></a>
+          <a class="navbar-brand" href="/"><span id="brand">&gt; Dock URL &lt;</span></a>
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,33 +52,28 @@
       <div class="container">
         
         <form id="url_shortner">
-          <div class="col">
-            <div class="input-group mb-2" id="usersUrl">
-              <div class="input-group-prepend">
+          <div class="input-group has-success">
+            <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fas fa-link"></i></div>
-              </div>
-              <input type="url" name="url" class="form-control" placeholder="URL" id="url">
+            </div>
+            <input type="url" class="form-control" id="url" placeholder="URL (must starts with http:// or https://)" value="" autofocus>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-success" id="button"><i class="fas fa-link"></i> &nbsp;Shorten</button>
             </div>
           </div>
+          <span id="valid" aria-hidden="true"></span>
 
-          <br>
+          <br><br>
 
-          <div class="col">
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">https://dockurl/</div>
-              </div>
-              <input type="text" name="key" class="form-control" placeholder="(Optional) Your custom URL" id="key">
+          <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">https://dockurl.herokuapp.com/</div>
             </div>
+            <input type="text" class="form-control" id="key" placeholder="(Optional) Provide Custom URL" value="">
           </div>
+          <span id="check" aria-hidden="true"></span>
           
           <br>
-          
-          <div class="form-row">
-            <div class="col text-center">
-              <button type="submit" name="key" class="btn btn-success mb-2" id="button"><i class="fas fa-link"></i> &nbsp;Shorten</button>
-            </div>
-          </div>
 
         </form>
         <div id="result"></div>
