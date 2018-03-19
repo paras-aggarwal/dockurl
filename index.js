@@ -22,7 +22,7 @@ var urlSchema = mongoose.Schema({
 // Model
 var Url = mongoose.model('Url', urlSchema);
 
-app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/static'));
 app.use(express.static(__dirname+'/public'));
 
 var bodyParser = require('body-parser')
@@ -78,7 +78,7 @@ app.post('/check',function(req, res){
 
 app.get('/:link', function(req, res){
 	var key = req.params.link;
-	Url.findOne({key:key},function (err, url) {		// find search all and findOne search only for one
+	Url.findOneAndUpdate({key:key},{$inc:{hits: 1}},function (err, url) {		// find search all and findOne search only for one
 	    console.log(url);   	
         if(url)
         	res.redirect(url.url);

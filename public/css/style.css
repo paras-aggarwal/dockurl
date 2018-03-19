@@ -3,10 +3,10 @@
 }
 @media screen and (max-width: 1000px){
   #nav{
-    margin-bottom: 20%;
+    margin-bottom: 13%;
   }
   #main-div{
-    min-height: 70%;
+    min-height: 50%;
   }
 }
 #header{
