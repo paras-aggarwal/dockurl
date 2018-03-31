@@ -14,6 +14,11 @@
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script>
+
+    </script>
+
 
     <title>Dock Url: A Custom URL Shortener by Paras Aggarwal</title>
 
@@ -32,8 +37,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <button class="btn btn-outline-light m-2 my-sm-0"><i class="fas fa-home"></i> &nbsp;Home</button>
-                <button class="btn btn-outline-light m-2 my-sm-0"><i class="fas fa-info-circle"></i> &nbsp;About</button>
+                <button class="btn btn-outline-light m-2 my-sm-0" data-toggle="modal" data-target="#aboutUs"><i class="fas fa-info-circle"></i> &nbsp;About</button>
               </li>
             </ul>
           </div>
@@ -41,7 +45,27 @@
       </div>
     </div>
 
-      <!-- Main Heading -->
+    <!-- About Us -->
+    <div class="modal fade" id="aboutUs" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">About Dock URL</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <strong>Dock URL</strong> is an online application that converts a regular URL (the web address that starts with http://) into its condensed format. The user only has to copy the full URL of a website and paste it into the URL shortening tool to come up with an abbreviated version that is around 10 to 20 characters long. It also provides the user to create his/her own URL as a key.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Heading -->
     <div class="row no-gutters" id="main-div">
       
       <div class="col-3"></div>
@@ -77,12 +101,17 @@
           <br>
 
         </form>
-        <div id="result"></div>
+        <div id="result">
+          <div class="alert alert-Success" role="alert">You have successfully created your short url, Here is your short url:
+        </div>
+        <div id="resultLink">
+          <div class="alert alert-dark" role="alert" data-toggle="tooltip" data-placement="bottom" title="Click to copy"><div id="showData">https://dockurl.herokuapp.com/<span id="link"></span></div></div>
+        </div>
       </div>
     </div>
     <div class="col-3">
     </div>
-    <hr color="#4fa846">
+    
     <!-- Footer -->
     <div class="row no-gutters" id="footer">
       <div class="col-md-12 text-center">

@@ -44,3 +44,12 @@ input [type=text]{
   float: right;
   padding-right: 20px;
 }
+#result{
+  display: none;
+}
+#resultData{
+  display: none;
+}
+#showData{
+  display: none;
+}

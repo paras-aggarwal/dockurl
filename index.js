@@ -3,7 +3,7 @@ var app = express();
 
 // MongoDB Connection
 var mongoose = require('mongoose');
-mongoose.connect(' <MongoDB Connection String> ');
+mongoose.connect('mongodb://paras:paras@ds211029.mlab.com:11029/paras_db');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -86,10 +86,6 @@ app.get('/:link', function(req, res){
         	return console.error(err);	
     });
 	console.log("redirect request for: "+key);
-});
-
-app.get('/*',function(req, res){
-	res.sendFile('error.html',{root:__dirname});
 });
 
 app.listen(process.env.PORT || 3000,function(){

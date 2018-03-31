@@ -1,5 +1,9 @@
-$(document).ready(function(){
-	$('#url').on('change',function(e){
+$(document).ready(function() {
+	$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+	});
+
+	$('#url').on('change',function(e) {
 		var reg = /^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i;
 		if (reg.test($('#url').val())) { 
     		$('#valid').html('<font color="green">Looks good!</font>');
@@ -16,18 +20,18 @@ $(document).ready(function(){
 		}
 	});
 
-	$('#key').on('keyup', function(e){
+	$('#key').on('keyup', function(e) {
 		var k = $(this).val();
 		if(k.length == 0)
 			$('#check').html('');
-		else{
+		else {
 			$.ajax({
 				type: "POST",
 				url: "/check",
 				data: {key: k},
 				success: function(data)
 				{
-					if(data == "available"){
+					if(data == "available") {
 							$('#check').html('<font color="red">Not Available</font>');
 							$('#key').css('border','1.3px solid red');
 							$('#button').attr('disabled','disabled');
@@ -46,7 +50,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$('#url_shortner').submit(function(e){
+	$('#url_shortner').submit(function(e) { 
 		e.preventDefault();
 		var u = $('#url').val();
 		var k = $('#key').val();
@@ -60,24 +64,47 @@ $(document).ready(function(){
 		else
 			$('#valid').html('');
 			
-			$.ajax({
-				type: "POST",
-				url: "/short",
-				data: { url: u,key: k},
-				success: function(data)
-				{
-					console.log('key: '+data);
-					if(data){
-						$('#result').html('<div class="alert alert-Success" role="alert">You have successfully created your short url, Here is your short url:<br><div class="input-group"><div class="input-group-prepend"><div class="input-group-text"><i class="fas fa-link"></i></div></div><input type="text" class="form-control" value=https://dockurl.herokuapp.com/'+data+' readonly></div></div>');
-					}
-					else{
-						$('#result').html('<div class="alert alert-danger" role="alert">Some error Occured !</div>');
-					}
-				},
-				error: function(data)
-				{
-					console.log('Custom URL Generate Request Failed! :(');				
+		$.ajax({
+			type: "POST",
+			url: "/short",
+			data: { url: u,key: k},
+			success: function(data)
+			{
+				console.log('key: '+data);
+				if(data) {
+					$('#result').css('display', 'block');
+					$('#resultData').css('display', 'block');
+					$('#showData').css('display', 'block');
+					$('#link').html(data);
 				}
-			});
+				else {
+					$('#result').css('display', 'none');
+					$('#resultData').css('display', 'none');
+					$('#showData').css('display', 'none');
+					$('#result').html('<div class="alert alert-danger" role="alert">Some error Occured !</div>');
+				}
+			},
+			error: function(data)
+			{
+				console.log('Custom URL Generate Request Failed! :(');				
+			}
+		});
 	});
+});
+
+const link = document.querySelector("#showData");
+link.onclick = function() {
+	document.execCommand("copy");
+}
+link.addEventListener("copy", function(event) {
+	event.preventDefault();
+    if (event.clipboardData) {
+        event.clipboardData.setData("text/plain", link.textContent);
+        console.log(event.clipboardData.getData("text"))
+        $('[data-toggle="tooltip"]').tooltip('dispose')
+        $(this).tooltip('hide')
+        .attr('title', 'Copied')
+        .attr('data-placement', 'bottom')
+        .tooltip('show');
+    }
 });
