@@ -3,7 +3,7 @@ var app = express();
 
 // MongoDB Connection
 var mongoose = require('mongoose');
-mongoose.connect('<MongoDB connection string>');
+mongoose.connect('mongodb://paras:paras@ds211029.mlab.com:11029/paras_db');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));

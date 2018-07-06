@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#343a40">
@@ -88,7 +88,7 @@
           </div>
           <span id="valid" aria-hidden="true"></span>
 
-          <br><br>
+          <br> <br>
 
           <div class="input-group">
             <div class="input-group-prepend">
@@ -101,24 +101,28 @@
           <br>
 
         </form>
+
         <div id="result">
           <div class="alert alert-Success" role="alert">You have successfully created your short url, Here is your short url:
+          </div>
+          <div id="resultLink">
+            <div class="alert alert-dark" role="alert" data-toggle="tooltip" data-placement="bottom" title="Click to copy"><div id="showData">https://dockurl.herokuapp.com/<span id="link"></span></div></div>
+          </div>
         </div>
-        <div id="resultLink">
-          <div class="alert alert-dark" role="alert" data-toggle="tooltip" data-placement="bottom" title="Click to copy"><div id="showData">https://dockurl.herokuapp.com/<span id="link"></span></div></div>
-        </div>
+        
       </div>
-    </div>
-    <div class="col-3">
-    </div>
+      <div class="col-3"></div>
+      <br> <br>
     
-    <!-- Footer -->
-    <div class="row no-gutters" id="footer">
-      <div class="col-md-12 text-center">
-        <div id="signature"><span id="copyright">&copy; 2018, Dock URL</span> <span id="creator">A URL Shortener by: Paras Aggarwal &amp; Aarti Verma</span></div>
+      <!-- Footer -->
+      <div class="row no-gutters" id="footer">
+        <div class="col-md-12 text-center">
+          <div id="signature"><span id="copyright">&copy; 2018, Dock URL</span> <span id="creator">A URL Shortener by: Paras Aggarwal &amp; Aarti Verma</span></div>
+        </div>
       </div>
     </div>
+
     <script src="js/init.js"></script>
 
   </body>
-  </html>
+</html>

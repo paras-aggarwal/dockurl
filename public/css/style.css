@@ -3,10 +3,18 @@
 }
 @media screen and (max-width: 1000px){
   #nav{
-    margin-bottom: 13%;
+    margin-bottom: 6%;
   }
-  #main-div{
-    min-height: 50%;
+}
+@media screen and (max-width: 500px){
+  #nav{
+    margin-bottom: 0;
+  }
+  #header{
+    font-size: 30px;
+  }
+  #footer{
+    font-size: 12px;
   }
 }
 #header{
@@ -16,9 +24,6 @@
 #brand{
   font-family: 'Akronim', cursive;
   font-size: 40px;
-}
-#main-div{
-  min-height: 60%;
 }
 input [type=text]{
   z-index: 0;
@@ -33,7 +38,8 @@ input [type=text]{
   position: fixed;
   background-color: #343a40;
   color: #fff;
-  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   z-index: 100;
 }
 #copyright{

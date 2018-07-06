@@ -76,6 +76,8 @@ $(document).ready(function() {
 					$('#resultData').css('display', 'block');
 					$('#showData').css('display', 'block');
 					$('#link').html(data);
+					$('#url').val('');
+					$('#key').val('');
 				}
 				else {
 					$('#result').css('display', 'none');
