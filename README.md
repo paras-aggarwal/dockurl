@@ -13,7 +13,6 @@ DockURL is a standard URL Shortener that is used to create a short URL from a lo
 | Jquery | Javascript Library|
 | Node.Js | Backend Server |
 | Express | Routing |
-| EJS | Rendering |
 | MongoDB | Database |
 
 ### Clone Repository
