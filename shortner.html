@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.min.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#343a40">
+    <meta name="theme-color" content="#4ca77b">
     <link rel="icon" href="assets/dockurl-favicon.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,65 +13,17 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <script>
 
-    </script>
-
-
-    <title>Dock Url: A Custom URL Shortener by Paras Aggarwal</title>
+    <title>Dock Url: A URL Shortener by Paras Aggarwal</title>
 
   </head>
   <body>
-    <!-- Navbar Section -->
-    <div class="row no-gutters">
-      <div class="col-md-12">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
-          <a class="navbar-brand" href="/"><span id="brand">&gt; Dock URL &lt;</span></a>
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <button class="btn btn-outline-light m-2 my-sm-0" data-toggle="modal" data-target="#aboutUs"><i class="fas fa-info-circle"></i> &nbsp;About</button>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-
-    <!-- About Us -->
-    <div class="modal fade" id="aboutUs" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">About Dock URL</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <strong>Dock URL</strong> is an online application that converts a regular URL (the web address that starts with http://) into its condensed format. The user only has to copy the full URL of a website and paste it into the URL shortening tool to come up with an abbreviated version that is around 10 to 20 characters long. It also provides the user to create his/her own URL as a key.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Main Heading -->
     <div class="row no-gutters" id="main-div">
       
-      <div class="col-3"></div>
-      <div class="col-md-6">
+      <div class="col-md-8 mx-auto">
         <h1 class="text-center" id="header">Shorten your URL</h1>
-      
 
       <!-- Form -->
       <div class="container">
@@ -89,12 +41,12 @@
           <span id="valid" aria-hidden="true"></span>
 
           <br> <br>
-
+          Custom URL:
           <div class="input-group">
             <div class="input-group-prepend">
-                <div class="input-group-text">https://dockurl.herokuapp.com/</div>
+                <div class="input-group-text" id="fixedPrefix">https://dockurl.herokuapp.com/</div>
             </div>
-            <input type="text" class="form-control form-control-sm" id="key" placeholder="(Optional) Provide Custom URL" value="">
+            <input type="text" class="form-control form-control-sm" id="key" placeholder="(Optional)" value="">
           </div>
           <span id="check" aria-hidden="true"></span>
           
@@ -103,26 +55,33 @@
         </form>
 
         <div id="result">
-          <div class="alert alert-Success" role="alert">You have successfully created your short url, Here is your short url:
-          </div>
-          <div id="resultLink">
-            <div class="alert alert-dark" role="alert" data-toggle="tooltip" data-placement="bottom" title="Click to copy"><div id="showData">https://dockurl.herokuapp.com/<span id="link"></span></div></div>
+          <div class="alert alert-Success" role="alert" id="main-result-div">
+            DONE! YOU HAVE CREATED YOUR SHORT URL
+            <div id="resultLink">
+                              
+                <div class="input-group">
+                  <input id="showData" type="url" class="form-control" value="">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-success" id="copy-btn" onclick="copyToClipboard()">Copy</button>
+                  </div>
+                </div>
+
+            </div>
           </div>
         </div>
         
       </div>
       <div class="col-3"></div>
       <br> <br>
-    
-      <!-- Footer -->
-      <div class="row no-gutters" id="footer">
-        <div class="col-md-12 text-center">
-          <div id="signature"><span id="copyright">&copy; 2018, Dock URL</span> <span id="creator">A URL Shortener by: Paras Aggarwal &amp; Aarti Verma</span></div>
-        </div>
-      </div>
+    </div>
     </div>
 
-    <script src="js/init.js"></script>
+      <!-- Footer -->
+      <div class="fixed-bottom navbar-dark bg-dark" id="footer">
+        <div class="pagination-centered" id="copyright">&copy; 2018 DockURL &nbsp; All rights reserved</div>
+      </div>
 
+    <script src="js/init.js"></script>
+      
   </body>
 </html>

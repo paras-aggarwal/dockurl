@@ -72,10 +72,10 @@ $(document).ready(function() {
 			{
 				console.log('key: '+data);
 				if(data) {
-					$('#result').css('display', 'block');
 					$('#resultData').css('display', 'block');
 					$('#showData').css('display', 'block');
-					$('#link').html(data);
+					$('#showData').val("http://dockurl.herokuapp.com/" + data);
+					$("#result").slideDown("medium");
 					$('#url').val('');
 					$('#key').val('');
 				}
@@ -83,7 +83,7 @@ $(document).ready(function() {
 					$('#result').css('display', 'none');
 					$('#resultData').css('display', 'none');
 					$('#showData').css('display', 'none');
-					$('#result').html('<div class="alert alert-danger" role="alert">Some error Occured !</div>');
+					$('#result').html('<div class="alert alert-danger" role="alert">Some error Occured!</div>');
 				}
 			},
 			error: function(data)
@@ -94,19 +94,8 @@ $(document).ready(function() {
 	});
 });
 
-const link = document.querySelector("#showData");
-link.onclick = function() {
-	document.execCommand("copy");
+function copyToClipboard() {
+	var copyText = document.getElementById("showData");
+	copyText.select();
+ 	document.execCommand("copy");
 }
-link.addEventListener("copy", function(event) {
-	event.preventDefault();
-    if (event.clipboardData) {
-        event.clipboardData.setData("text/plain", link.textContent);
-        console.log(event.clipboardData.getData("text"))
-        $('[data-toggle="tooltip"]').tooltip('dispose')
-        $(this).tooltip('hide')
-        .attr('title', 'Copied')
-        .attr('data-placement', 'bottom')
-        .tooltip('show');
-    }
-});

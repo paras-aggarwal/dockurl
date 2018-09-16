@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 
 // MongoDB Connection
@@ -24,11 +25,10 @@ var Url = mongoose.model('Url', urlSchema);
 
 app.use(express.static(__dirname + '/static'));
 app.use(express.static(__dirname+'/public'));
-
-var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+// Routes
 app.get('/',function(req, res){
 	res.sendFile('shortner.html',{root:__dirname});
 });
@@ -78,12 +78,15 @@ app.post('/check',function(req, res){
 
 app.get('/:link', function(req, res){
 	var key = req.params.link;
-	Url.findOneAndUpdate({key:key},{$inc:{hits: 1}},function (err, url) {		// find search all and findOne search only for one
-	    console.log(url);   	
-        if(url)
+	Url.findOneAndUpdate({key:key},{$inc:{hits: 1}},function (err, url) {
+		console.log(url);
+		if(url)
         	res.redirect(url.url);
-        else if (err)
-        	return console.error(err);	
+		else if (err)
+			console.log(err);
+		else
+			res.sendFile('error.html',{root:__dirname});
+    
     });
 	console.log("redirect request for: "+key);
 });
