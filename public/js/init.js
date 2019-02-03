@@ -78,6 +78,7 @@ $(document).ready(function() {
 					$("#result").slideDown("medium");
 					$('#url').val('');
 					$('#key').val('');
+					$('#check').html('');
 				}
 				else {
 					$('#result').css('display', 'none');

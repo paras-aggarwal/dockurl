@@ -13,6 +13,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Chivo' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Eczar' rel='stylesheet'>
 
     <title>Dock Url: A URL Shortener by Paras Aggarwal</title>
 
@@ -35,7 +37,7 @@
             </div>
             <input type="url" class="form-control form-control-lg" id="url" placeholder="URL (must starts with http:// or https://)" value="" autofocus>
             <div class="input-group-append">
-              <button type="submit" class="btn btn-success" id="button">Shorten</button>
+              <button type="submit" class="btn btn-success" id="button"><b>Shorten</b></button>
             </div>
           </div>
           <span id="valid" aria-hidden="true"></span>
@@ -44,7 +46,7 @@
           Custom URL:
           <div class="input-group">
             <div class="input-group-prepend">
-                <div class="input-group-text" id="fixedPrefix">https://dockurl.herokuapp.com/</div>
+                <div class="input-group-text" id="fixedPrefix">http://dockurl.herokuapp.com/</div>
             </div>
             <input type="text" class="form-control form-control-sm" id="key" placeholder="(Optional)" value="">
           </div>
@@ -62,7 +64,7 @@
                 <div class="input-group">
                   <input id="showData" type="url" class="form-control" value="">
                   <div class="input-group-append">
-                    <button type="submit" class="btn btn-success" id="copy-btn" onclick="copyToClipboard()">Copy</button>
+                    <button type="submit" class="btn btn-success" id="copy-btn" onclick="copyToClipboard()">Copy </button>
                   </div>
                 </div>
 
@@ -78,7 +80,7 @@
 
       <!-- Footer -->
       <div class="fixed-bottom navbar-dark bg-dark" id="footer">
-        <div class="pagination-centered" id="copyright">&copy; 2018 DockURL &nbsp; All rights reserved</div>
+        <div class="pagination-centered" id="copyright">&copy; <script>document.write(new Date().getFullYear());</script> DockURL &nbsp; | &nbsp; All rights reserved</div>
       </div>
 
     <script src="js/init.js"></script>
