@@ -4,12 +4,12 @@ var app = express();
 
 // MongoDB Connection
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://paras:paras@ds211029.mlab.com:11029/paras_db');
+mongoose.connect('mongodb+srv://paras:paras@short-urls.f7keo.mongodb.net/paras_db?retryWrites=true&w=majority');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
-	console.log("Connected To MLab cloud database");
+	console.log("Connected To Mongo Atlas Cloud database...");
 });
 
 // Schema
